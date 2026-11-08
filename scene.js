@@ -73,11 +73,13 @@
 
   function onGolden() {
     if (state === "together") serveCake();
-    else if (state === "lit") wishAndBlow();
+    else if (state === "lit") makeWish();
   }
 
   function onCake() {
     if (state === "cake") lightCandles();
+    else if (state === "toBlow") blowCandles();
+    else if (state === "toLetter") showLetter();
   }
 
   function serveCake() {
@@ -114,24 +116,37 @@
     }, done);
   }
 
-  function wishAndBlow() {
+  function makeWish() {
     setState("wishing");
     setTarget(null);
     say("许个愿吧");
     maltese.classList.add("wishing");
     window.setTimeout(function () {
       if (state !== "wishing") return;
-      say("吹灭蜡烛");
-      maltese.classList.add("blowing");
-      puff.classList.add("go");
+      setState("toBlow");
+      setTarget("cake");
+      say("再点点蜡烛");
     }, 1700);
+  }
+
+  function blowCandles() {
+    setState("blowing");
+    setTarget(null);
+    say("吹灭蜡烛");
+    maltese.classList.add("blowing");
+    puff.classList.add("go");
     window.setTimeout(function () {
       cake.querySelectorAll(".candle").forEach(function (node) {
         node.classList.remove("lit");
         node.classList.add("out");
       });
-    }, 2360);
-    window.setTimeout(showLetter, 4000);
+    }, 660);
+    window.setTimeout(function () {
+      if (state !== "blowing") return;
+      setState("toLetter");
+      setTarget("cake");
+      say("再点点蛋糕");
+    }, 2300);
   }
 
   function showLetter() {
