@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6efe4">
+  <title>生日快乐</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="stage" id="stage">
+    <div class="scene" id="scene" data-state="start">
+      <div class="glow" aria-hidden="true"></div>
+      <div class="table" aria-hidden="true"></div>
+
+      <button class="dog golden" id="golden" type="button" aria-label="黄色金毛" disabled>
+        <span class="bob"><img class="pose" src="golden.png" alt=""></span>
+      </button>
+
+      <div class="dog maltese" id="maltese" role="img" aria-label="白色马尔济斯">
+        <span class="bob"><img class="pose" src="maltese.png" alt=""></span>
+      </div>
+
+      <button class="cake" id="cake" type="button" aria-label="生日蛋糕" disabled></button>
+
+      <div class="puff" id="puff" aria-hidden="true">
+        <i></i><i></i><i></i>
+      </div>
+
+      <button class="start-layer" id="start" type="button">
+        <span class="start-card">点一下，生日开始</span>
+      </button>
+
+      <p class="hint" id="hint" hidden aria-live="polite"></p>
+    </div>
+
+    <section class="letter" id="letter" aria-hidden="true">
+      <article class="sheet">
+        <h1 id="letterTitle"></h1>
+        <p class="to" id="letterTo"></p>
+        <div class="body" id="letterBody"></div>
+        <p class="from" id="letterFrom" hidden></p>
+        <svg class="paw" viewBox="0 0 72 48" aria-hidden="true">
+          <ellipse cx="36" cy="34" rx="12" ry="9" fill="#e7b7b0"/>
+          <ellipse cx="18" cy="20" rx="6" ry="8" fill="#e7b7b0"/>
+          <ellipse cx="30" cy="14" rx="5.5" ry="7.5" fill="#e7b7b0"/>
+          <ellipse cx="42" cy="14" rx="5.5" ry="7.5" fill="#e7b7b0"/>
+          <ellipse cx="54" cy="20" rx="6" ry="8" fill="#e7b7b0"/>
+        </svg>
+      </article>
+    </section>
+  </main>
+  <script src="wishes.js"></script>
+  <script src="scene.js"></script>
+</body>
+</html>
